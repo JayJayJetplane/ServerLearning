@@ -8,9 +8,9 @@ import java.net.InetSocketAddress;
 
 public class WebServer {
 
-    public void createServer() throws IOException {
-        HttpServer server = HttpServer.create(new InetSocketAddress(8000), 0);
-        System.out.println("server started on port 8000");
+    public void createServer(int port) throws IOException {
+        HttpServer server = HttpServer.create(new InetSocketAddress(port), 0);
+        System.out.println("server started on port " + port);
         server.createContext("/", new RootHandler());
         server.setExecutor(null);
         server.start();
